@@ -6,7 +6,7 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 10:34:15 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/04/22 10:35:05 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/04/24 14:06:35 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,6 @@ int	on_keypress(int keysym, t_data *data)
 		re_print_all_images(data, KEY_DOWN);
 	if (keysym == KEY_D || keysym == KEY_RIGHT)
 		re_print_all_images(data, KEY_RIGHT);
-	return (0);
-}
-
-int	on_keyrelease(int keysym, t_data *data)
-{
-	(void) keysym;
 	if (data->nb_collectable == data->player->collected
 		&& data->player->x == data->exit->x && data->player->y == data->exit->y)
 		on_destroy(data);
