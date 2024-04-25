@@ -6,7 +6,7 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 17:17:07 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/04/22 11:08:50 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/04/25 16:28:58 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ static void	init_wall(t_data *data)
 static void	init_player(t_data *data)
 {
 	int	i;
+	int	j;
 
 	data->player = ft_calloc(1, sizeof(t_player));
 	if (!data->player)
@@ -49,21 +50,33 @@ static void	init_player(t_data *data)
 	i = 0;
 	while (i < 4)
 	{
-		data->player->imgs[i] = ft_calloc(1, sizeof(t_img));
-		if (!data->player->imgs[i])
-			return ;
+		j = 0;
+		while (j < 8)
+		{
+			data->player->imgs[i][j] = ft_calloc(1, sizeof(t_img));
+			if (!data->player->imgs[i][j])
+				return ;
+			j++;
+		}
 		i++;
 	}
 }
 
 static void	init_floor_and_collect(t_data *data)
 {
+	int	i;
+
 	data->floor = ft_calloc(1, sizeof(t_img));
 	if (!data->floor)
 		return ;
-	data->collect = ft_calloc(1, sizeof(t_img));
-	if (!data->collect)
-		return ;
+	i = 0;
+	while (i < 4)
+	{
+		data->collect[i] = ft_calloc(1, sizeof(t_img));
+		if (!data->collect[i])
+			return ;
+		i++;
+	}
 }
 
 void	init_images(t_data *data)
@@ -72,4 +85,5 @@ void	init_images(t_data *data)
 	init_wall(data);
 	init_floor_and_collect(data);
 	init_player(data);
+	data->player->direction = SUD;
 }

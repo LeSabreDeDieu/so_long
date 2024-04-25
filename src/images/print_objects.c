@@ -6,7 +6,7 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 11:00:27 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/04/22 11:01:53 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/04/25 15:33:12 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,21 +51,23 @@ void	print_player(t_data *data, int key, int i, int j)
 	if (key == KEY_DOWN)
 	{
 		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
-			data->player->imgs[0]->img, j * 64, i * 64);
-	}
-	else if (key == KEY_LEFT)
-	{
-		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
-			data->player->imgs[1]->img, j * 64, i * 64);
-	}
-	else if (key == KEY_UP)
-	{
-		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
-			data->player->imgs[2]->img, j * 64, i * 64);
+			data->player->imgs[0][0]->img, j * 64, i * 64);
 	}
 	else if (key == KEY_RIGHT)
 	{
 		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
-			data->player->imgs[3]->img, j * 64, i * 64);
+			data->player->imgs[1][0]->img, j * 64, i * 64);
 	}
+	else if (key == KEY_UP)
+	{
+		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
+			data->player->imgs[2][0]->img, j * 64, i * 64);
+	}
+	else if (key == KEY_LEFT)
+	{
+		mlx_put_image_to_window(data->mlx_ptr, data->win_ptr,
+			data->player->imgs[3][0]->img, j * 64, i * 64);
+	}
+	if (data->player->old_direction != data->player->direction)
+		data->frame = 0;
 }
