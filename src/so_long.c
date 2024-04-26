@@ -6,7 +6,7 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 16:15:30 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/04/25 12:16:44 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/04/26 16:07:03 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	main(int argc, char *argv[])
 	if (!init_minilib(&data))
 		return (1);
 	init_images(&data);
-	print_all_images(&data);
+	init_screen(&data);
 	mlx_hook(data.win_ptr, KeyPress, KeyPressMask, &on_keypress, &data);
 	mlx_hook(data.win_ptr, DestroyNotify, StructureNotifyMask, &on_destroy,
 		&data);

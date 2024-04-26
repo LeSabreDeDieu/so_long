@@ -6,7 +6,7 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 14:01:37 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/04/25 16:33:15 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/04/26 16:20:25 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,7 @@
 /*IMAGES USED*/
 
 /*ALL FRAME PLAYER DOWN*/
+/*IDLE*/
 # define PLAYERDOWN "./ressources/player/idle/down/player-idle-0-1.xpm"
 # define PLAYERDOWN1 "./ressources/player/idle/down/player-idle-0-2.xpm"
 # define PLAYERDOWN2 "./ressources/player/idle/down/player-idle-0-3.xpm"
@@ -104,6 +105,15 @@
 # define PLAYERDOWN5 "./ressources/player/idle/down/player-idle-0-6.xpm"
 # define PLAYERDOWN6 "./ressources/player/idle/down/player-idle-0-7.xpm"
 # define PLAYERDOWN7 "./ressources/player/idle/down/player-idle-0-8.xpm"
+/*RUN*/
+# define PLAYERDOWNRUN "./ressources/player/run/down/player-run-0-1.xpm"
+# define PLAYERDOWNRUN1 "./ressources/player/run/down/player-run-0-2.xpm"
+# define PLAYERDOWNRUN2 "./ressources/player/run/down/player-run-0-3.xpm"
+# define PLAYERDOWNRUN3 "./ressources/player/run/down/player-run-0-4.xpm"
+# define PLAYERDOWNRUN4 "./ressources/player/run/down/player-run-0-5.xpm"
+# define PLAYERDOWNRUN5 "./ressources/player/run/down/player-run-0-6.xpm"
+# define PLAYERDOWNRUN6 "./ressources/player/run/down/player-run-0-7.xpm"
+# define PLAYERDOWNRUN7 "./ressources/player/run/down/player-run-0-8.xpm"
 
 /*ALL FRAME PLAYER RIGHT*/
 # define PLAYERRIGHT "./ressources/player/idle/right/player-idle-1-1.xpm"
@@ -206,7 +216,8 @@ typedef struct s_exit
 
 typedef struct s_player
 {
-	struct s_img	*imgs[4][8];
+	struct s_img	*idle[4][8];
+	struct s_img	*run[4][8];
 	unsigned int	x;
 	unsigned int	y;
 	unsigned int	collected;
@@ -230,6 +241,8 @@ typedef struct s_data
 	int				width;
 	int				rate;
 	int				frame;
+	int				frame_collec;
+	int				frame_run;
 }					t_data;
 
 /*UTILS*/
@@ -269,15 +282,17 @@ void				set_player_down(t_data *data);
 void				set_player_left(t_data *data);
 void				set_player_right(t_data *data);
 void				set_player_up(t_data *data);
+void				*set_image(t_data *data, char *path, int height, int width);
 void				set_img(t_data *data);
 
 /*PRINT IMAGES*/
 void				print_walls(t_data *data, int y, int x);
 void				print_player(t_data *data, int key, int i, int j);
+void				print_image(t_data *data, void *img, int i, int j);
 
 /*FILL IMAGE*/
+void				init_screen(t_data *data);
 void				init_images(t_data *data);
-void				print_all_images(t_data *data);
 void				re_print_image(t_data *data, int key, int i, int j);
 
 /*ANIMATIONS*/

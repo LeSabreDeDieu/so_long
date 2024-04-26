@@ -6,7 +6,7 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 17:17:07 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/04/25 16:28:58 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/04/26 15:40:23 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,11 @@ static void	init_player(t_data *data)
 		j = 0;
 		while (j < 8)
 		{
-			data->player->imgs[i][j] = ft_calloc(1, sizeof(t_img));
-			if (!data->player->imgs[i][j])
+			data->player->idle[i][j] = ft_calloc(1, sizeof(t_img));
+			if (!data->player->idle[i][j])
+				return ;
+			data->player->run[i][j] = ft_calloc(1, sizeof(t_img));
+			if (!data->player->run[i][j])
 				return ;
 			j++;
 		}
