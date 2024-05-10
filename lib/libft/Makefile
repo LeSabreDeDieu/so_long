@@ -6,7 +6,7 @@
 #    By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/07 13:44:09 by sgabsi            #+#    #+#              #
-#    Updated: 2024/04/17 17:33:36 by sgabsi           ###   ########.fr        #
+#    Updated: 2024/03/21 13:27:23 by sgabsi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -123,7 +123,7 @@ NAMESO		=	libft.so
 
 # Compiler
 CC			=	cc
-CFLAGS		=	-Wall -Werror -Wextra -O3 -ffreestanding -nostdlib -g3
+CFLAGS		=	-Wall -Werror -Wextra -O3 -ffreestanding -nostdlib
 OPTIONS		=	-I $(INCDIR)
 
 #Progress bar
