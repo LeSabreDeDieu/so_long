@@ -6,7 +6,7 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 13:59:02 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/04/26 16:22:30 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/05/10 09:44:03 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,47 @@ void	animate_player(t_data *data)
 {
 	if (data->frame != -1)
 		print_image(data,
-			data->player->idle[data->player->direction][data->frame]->img,
-			data->player->y, data->player->x);
+			data->player->idle[data->player->direction][(data->frame % 8)]->img,
+			data->player->pos->y, data->player->pos->x);
 }
 
 void	animate_exit(t_data *data)
 {
 	if (data->player->collected == data->nb_collectable)
-		print_image(data, data->exit->imgs[1]->img, data->exit->y,
-			data->exit->x);
-	else
 	{
-		if (data->player->x != data->exit->x
-			&& data->player->y != data->exit->y)
-			print_image(data, data->exit->imgs[0]->img, data->exit->y,
-				data->exit->x);
+		print_image(data, data->exit->imgs[1]->img, data->exit->pos->y,
+			data->exit->pos->x);
+		return ;
+	}
+	if (data->player->pos->x != data->exit->pos->x
+		|| data->player->pos->y != data->exit->pos->y)
+		print_image(data, data->exit->imgs[0]->img, data->exit->pos->y,
+			data->exit->pos->x);
+}
+
+void	animate_mob(t_data *data)
+{
+	int	i;
+	int	j;
+	int	k;
+
+	i = 0;
+	k = 0;
+	while (data->map[i])
+	{
+		j = 0;
+		while (data->map[i][j])
+		{
+			if (data->map[i][j] == 'M')
+			{
+				print_image(data,
+					data->enemy[data->mob_direction[k]][(data->frame_collec
+						% 4)]->img, i, j);
+				k++;
+			}
+			j++;
+		}
+		i++;
 	}
 }
 

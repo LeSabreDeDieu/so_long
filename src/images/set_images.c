@@ -6,11 +6,12 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 10:44:44 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/04/26 14:35:20 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/05/07 13:32:09 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+#include "images.h"
 
 void	*set_image(t_data *data, char *path, int height, int width)
 {
@@ -22,7 +23,7 @@ void	*set_image(t_data *data, char *path, int height, int width)
 	return (img);
 }
 
-static void	set_wall(t_data *data)
+static void	load_wall(t_data *data)
 {
 	data->wall[0]->img = set_image(data, LEFTWALL, data->wall[0]->height,
 			data->wall[0]->width);
@@ -42,7 +43,7 @@ static void	set_wall(t_data *data)
 			data->wall[7]->width);
 }
 
-static void	set_coin(t_data *data)
+static void	load_coin(t_data *data)
 {
 	data->collect[0]->img = set_image(data, COIN, data->collect[0]->height,
 			data->collect[0]->width);
@@ -54,15 +55,15 @@ static void	set_coin(t_data *data)
 			data->collect[0]->width);
 }
 
-static void	set_player_images(t_data *data)
+static void	load_player(t_data *data)
 {
-	set_player_down(data);
-	set_player_left(data);
-	set_player_right(data);
-	set_player_up(data);
+	load_player_down(data);
+	load_player_left(data);
+	load_player_right(data);
+	load_player_up(data);
 }
 
-void	set_img(t_data *data)
+void	load_image(t_data *data)
 {
 	data->floor->img = set_image(data, FLOOR, data->floor->height,
 			data->floor->width);
@@ -70,7 +71,8 @@ void	set_img(t_data *data)
 			data->exit->imgs[0]->height, data->exit->imgs[0]->width);
 	data->exit->imgs[1]->img = set_image(data, EXITLADDER,
 			data->exit->imgs[0]->height, data->exit->imgs[0]->width);
-	set_coin(data);
-	set_wall(data);
-	set_player_images(data);
+	load_coin(data);
+	load_wall(data);
+	load_player(data);
+	load_enemy(data);
 }

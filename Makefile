@@ -6,7 +6,7 @@
 #    By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/21 16:28:59 by sgabsi            #+#    #+#              #
-#    Updated: 2024/04/25 15:13:30 by sgabsi           ###   ########.fr        #
+#    Updated: 2024/05/10 10:15:16 by sgabsi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,31 +24,36 @@ OBJDIR		=	obj
 # Sources
 # image_player
 SRC_IMAGES_P_DIR	=	player
-SRC_IMAGES_P_LIST	=	set_player_down.c \
-						set_player_left.c \
-						set_player_right.c \
+SRC_IMAGES_P_LIST	=	set_player_down.c 	\
+						set_player_left.c 	\
+						set_player_right.c	\
 						set_player_up.c
 SRC_IMAGES_P		=	$(addprefix $(SRC_IMAGES_P_DIR)/, $(SRC_IMAGES_P_LIST))
 
 # images
 SRC_IMAGES_DIR		=	images
-SRC_IMAGES_LIST		=	print_images.c 	\
-						print_objects.c \
-						set_images.c	\
+SRC_IMAGES_LIST		=	print_images.c 		\
+						print_objects.c 	\
+						set_enemy_image.c	\
+						set_images.c		\
 						$(SRC_IMAGES_P)
 SRC_IMAGES			=	$(addprefix $(SRC_IMAGES_DIR)/, $(SRC_IMAGES_LIST))
 
 
 # init
 SRC_INIT_DIR		=	init
-SRC_INIT_LIST		=	init_img.c 		\
+SRC_INIT_LIST		=	init_img.c 			\
+						init_img2.c			\
 						init_minilib.c 
 SRC_INIT			=	$(addprefix $(SRC_INIT_DIR)/, $(SRC_INIT_LIST))
 
 # utils
 SRC_UTILS_DIR		=	utils
 SRC_UTILS_LIST		=	animation.c			\
+						count_char.c		\
 						error.c 			\
+						math.c				\
+						mob_mouv.c			\
 						on_settings_utils.c	\
 						on_settings.c		\
 						parsing_utils.c		\
@@ -57,9 +62,9 @@ SRC_UTILS_LIST		=	animation.c			\
 						utils.c
 SRC_UTILS			=	$(addprefix $(SRC_UTILS_DIR)/, $(SRC_UTILS_LIST))
 
-SRC_LIST			=	$(SRC_IMAGES)	\
-						$(SRC_INIT)		\
-						$(SRC_UTILS)	\
+SRC_LIST			=	$(SRC_IMAGES)		\
+						$(SRC_INIT)			\
+						$(SRC_UTILS)		\
 						so_long.c
 SRC					=	$(addprefix $(SRCDIR)/, $(SRC_LIST))
 

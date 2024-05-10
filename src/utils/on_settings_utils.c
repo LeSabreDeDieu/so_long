@@ -6,7 +6,7 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 10:33:12 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/04/26 15:45:33 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/05/07 13:44:29 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void	destroy_free_exit(t_data *data)
 		free(data->exit->imgs[i]);
 		i++;
 	}
+	free(data->exit->pos);
 	free(data->exit);
 }
 
@@ -76,5 +77,26 @@ void	destroy_free_player(t_data *data)
 		}
 		i++;
 	}
+	free(data->player->pos);
 	free(data->player);
+}
+
+void	destroy_free_enemy(t_data *data)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < 4)
+	{
+		j = 0;
+		while (j < 4)
+		{
+			if (data->enemy[i][j]->img)
+				mlx_destroy_image(data->mlx_ptr, data->enemy[i][j]->img);
+			free(data->enemy[i][j]);
+			j++;
+		}
+		i++;
+	}
 }

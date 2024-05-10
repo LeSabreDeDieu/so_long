@@ -6,11 +6,12 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 16:15:30 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/04/26 16:07:03 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/05/07 11:56:02 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+#include <X11/X.h>
 
 void	usage(void)
 {
@@ -32,10 +33,10 @@ int	main(int argc, char *argv[])
 		return (1);
 	init_images(&data);
 	init_screen(&data);
+	mlx_loop_hook(data.mlx_ptr, &on_refresh, &data);
 	mlx_hook(data.win_ptr, KeyPress, KeyPressMask, &on_keypress, &data);
 	mlx_hook(data.win_ptr, DestroyNotify, StructureNotifyMask, &on_destroy,
 		&data);
-	mlx_loop_hook(data.mlx_ptr, &on_refresh, &data);
 	mlx_loop(data.mlx_ptr);
 	return (0);
 }

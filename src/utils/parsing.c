@@ -6,12 +6,13 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 16:09:37 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/04/24 12:10:15 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/05/10 10:13:53 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 #include <fcntl.h>
+#include <stdio.h>
 
 static char	*get_map(char *path)
 {
@@ -39,7 +40,7 @@ static char	*get_map(char *path)
 			map = tmp;
 		}
 	}
-	return (map);
+	return (close(fd), map);
 }
 
 static void	check_empty_line(char *map)

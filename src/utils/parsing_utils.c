@@ -6,13 +6,13 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 11:10:54 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/04/22 11:17:05 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/05/10 11:22:07 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static void	verif_nb_chars(t_data *data, int counter[3])
+static void	verif_nb_chars(t_data *data, int counter[4])
 {
 	if (counter[0] < 1 || counter[1] < 1 || counter[2] < 1)
 	{
@@ -25,6 +25,13 @@ static void	verif_nb_chars(t_data *data, int counter[3])
 		exit_error(TOOMANY);
 	}
 	data->nb_collectable = counter[2];
+	if (counter[3] != 0)
+	{
+		data->nb_mobs = counter[3];
+		data->mob_direction = ft_calloc(counter[3], sizeof(int));
+		if (!data->mob_direction)
+			return ;
+	}
 }
 
 static void	is_in_list(t_data *data, char *chars, int i, int j)
@@ -41,23 +48,18 @@ void	check_chars(t_data *data)
 	int		i;
 	int		j;
 	char	*chars;
-	int		counter[3];
+	int		counter[4];
 
 	i = 0;
 	ft_bzero(counter, sizeof(counter));
-	chars = "10CPE";
+	chars = "10CPEM";
 	while (data->map[i])
 	{
 		j = 0;
 		while (data->map[i][j])
 		{
 			is_in_list(data, chars, i, j);
-			if (data->map[i][j] == 'P')
-				counter[0]++;
-			if (data->map[i][j] == 'E')
-				counter[1]++;
-			if (data->map[i][j] == 'C')
-				counter[2]++;
+			char_counter(data, counter, i, j);
 			j++;
 		}
 		i++;

@@ -6,11 +6,12 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 14:12:34 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/04/26 15:42:54 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/05/06 09:11:44 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+#include "images.h"
 
 static void	set_player_run_down(t_data *data)
 {
@@ -32,7 +33,7 @@ static void	set_player_run_down(t_data *data)
 			data->player->run[0][7]->height, data->player->run[0][7]->width);
 }
 
-void	set_player_down(t_data *data)
+void	load_player_down(t_data *data)
 {
 	data->player->idle[0][0]->img = set_image(data, PLAYERDOWN,
 			data->player->idle[0][0]->height, data->player->idle[0][0]->width);
