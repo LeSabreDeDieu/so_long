@@ -6,7 +6,7 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 10:33:12 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/05/07 13:44:29 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/05/13 13:02:59 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,9 @@ void	destroy_free_exit(t_data *data)
 		if (data->exit->imgs[i]->img)
 			mlx_destroy_image(data->mlx_ptr, data->exit->imgs[i]->img);
 		free(data->exit->imgs[i]);
+		if (data->heart[i]->img)
+			mlx_destroy_image(data->mlx_ptr, data->heart[i]->img);
+		free(data->heart[i]);
 		i++;
 	}
 	free(data->exit->pos);
@@ -69,10 +72,12 @@ void	destroy_free_player(t_data *data)
 		{
 			if (data->player->idle[i][j]->img)
 				mlx_destroy_image(data->mlx_ptr, data->player->idle[i][j]->img);
-			if (data->player->run[i][j]->img)
+			if (data->player->run[i][j] && data->player->run[i][j]->img)
 				mlx_destroy_image(data->mlx_ptr, data->player->run[i][j]->img);
-			free(data->player->idle[i][j]);
-			free(data->player->run[i][j]);
+			if (data->player->idle[i][j])
+				free(data->player->idle[i][j]);
+			if (data->player->run[i][j])
+				free(data->player->run[i][j]);
 			j++;
 		}
 		i++;

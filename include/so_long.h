@@ -6,7 +6,7 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 14:01:37 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/05/10 11:29:32 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/05/13 13:19:05 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,10 +145,11 @@ typedef struct s_data
 {
 	t_player		*player;
 	t_exit			*exit;
-	t_img			*wall[8];
-	t_img			*floor;
-	t_img			*collect[4];
 	t_img			*enemy[4][4];
+	t_img			*wall[8];
+	t_img			*collect[4];
+	t_img			*floor;
+	t_img			*heart[2];
 	char			**map;
 	int				*mob_direction;
 	void			*mlx_ptr;
@@ -162,6 +163,7 @@ typedef struct s_data
 	int				height;
 	int				width;
 	int				rate;
+	int				dead;
 }					t_data;
 
 /*UTILS*/
@@ -201,7 +203,7 @@ int					init_minilib(t_data *data);
 
 /*SET & LOAD IMAGES*/
 void				load_image(t_data *data);
-void				*set_image(t_data *data, char *path, int height, int width);
+t_img				*set_image(t_data *data, char *path);
 
 /*SET IMAGES*/
 void				load_player_down(t_data *data);
@@ -211,6 +213,7 @@ void				load_player_up(t_data *data);
 void				load_enemy(t_data *data);
 
 /*PRINT IMAGES*/
+void				print_heart(t_data *data);
 void				print_walls(t_data *data, int y, int x);
 void				print_player(t_data *data, int key, int i, int j);
 void				print_image(t_data *data, void *img, int i, int j);

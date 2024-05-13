@@ -6,7 +6,7 @@
 #    By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/21 16:28:59 by sgabsi            #+#    #+#              #
-#    Updated: 2024/05/10 10:15:16 by sgabsi           ###   ########.fr        #
+#    Updated: 2024/05/13 09:29:29 by sgabsi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,7 +43,6 @@ SRC_IMAGES			=	$(addprefix $(SRC_IMAGES_DIR)/, $(SRC_IMAGES_LIST))
 # init
 SRC_INIT_DIR		=	init
 SRC_INIT_LIST		=	init_img.c 			\
-						init_img2.c			\
 						init_minilib.c 
 SRC_INIT			=	$(addprefix $(SRC_INIT_DIR)/, $(SRC_INIT_LIST))
 

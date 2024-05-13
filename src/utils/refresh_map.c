@@ -6,7 +6,7 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 10:52:17 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/05/10 10:01:36 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/05/13 13:53:11 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,13 @@
 
 static void	map_key_down(t_data *data, t_pos pos)
 {
+	int	i;
+
+	i = 0;
 	if (data->map[pos.y + 1][pos.x] == 'M')
 	{
-		ft_printf("%s\n", YOU_LOOSE);
-		on_destroy(data);
+		print_image(data, data->heart[1]->img, 0, 0);
+		data->dead = 1;
 	}
 	if (data->map[pos.y + 1][pos.x] != '1')
 	{
@@ -30,15 +33,19 @@ static void	map_key_down(t_data *data, t_pos pos)
 			data->map[pos.y][pos.x] = '0';
 		data->map[data->player->pos->y][data->player->pos->x] = 'P';
 		data->nb_pas++;
+		ft_printf("Nombre de pas : %d\n", data->nb_pas);
 	}
 }
 
 static void	map_key_left(t_data *data, t_pos pos)
 {
+	int	i;
+
+	i = 0;
 	if (data->map[pos.y][pos.x - 1] == 'M')
 	{
-		ft_printf("%s\n", YOU_LOOSE);
-		on_destroy(data);
+		print_image(data, data->heart[1]->img, 0, 0);
+		data->dead = 1;
 	}
 	if (data->map[pos.y][pos.x - 1] != '1')
 	{
@@ -51,15 +58,19 @@ static void	map_key_left(t_data *data, t_pos pos)
 			data->map[data->player->pos->y][pos.x] = '0';
 		data->map[data->player->pos->y][data->player->pos->x] = 'P';
 		data->nb_pas++;
+		ft_printf("Nombre de pas : %d\n", data->nb_pas);
 	}
 }
 
 static void	map_key_up(t_data *data, t_pos pos)
 {
+	int	i;
+
+	i = 0;
 	if (data->map[pos.y - 1][pos.x] == 'M')
 	{
-		ft_printf("%s\n", YOU_LOOSE);
-		on_destroy(data);
+		print_image(data, data->heart[1]->img, 0, 0);
+		data->dead = 1;
 	}
 	if (data->map[pos.y - 1][pos.x] != '1')
 	{
@@ -72,15 +83,19 @@ static void	map_key_up(t_data *data, t_pos pos)
 			data->map[pos.y][pos.x] = '0';
 		data->map[data->player->pos->y][data->player->pos->x] = 'P';
 		data->nb_pas++;
+		ft_printf("Nombre de pas : %d\n", data->nb_pas);
 	}
 }
 
 static void	map_key_right(t_data *data, t_pos pos)
 {
+	int	i;
+
+	i = 0;
 	if (data->map[pos.y][pos.x + 1] == 'M')
 	{
-		ft_printf("%s\n", YOU_LOOSE);
-		on_destroy(data);
+		print_image(data, data->heart[1]->img, 0, 0);
+		data->dead = 1;
 	}
 	if (data->map[pos.y][pos.x + 1] != '1')
 	{
@@ -93,6 +108,7 @@ static void	map_key_right(t_data *data, t_pos pos)
 			data->map[pos.y][pos.x] = '0';
 		data->map[data->player->pos->y][data->player->pos->x] = 'P';
 		data->nb_pas++;
+		ft_printf("Nombre de pas : %d\n", data->nb_pas);
 	}
 }
 
@@ -119,5 +135,4 @@ void	refresh_map_player(t_data *data, int key)
 		print_player(data, key, data->player->pos->y, data->player->pos->x);
 	}
 	re_print_image(data, key, data->player->pos->y, data->player->pos->x);
-	ft_printf("Nombre de pas : %d\n", data->nb_pas);
 }

@@ -6,11 +6,25 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 11:00:27 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/05/06 09:26:03 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/05/13 12:06:47 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+#include <stdio.h>
+
+static void	set_image_heart(t_img *heart, t_img *top_wall)
+{
+	ssize_t	i;
+
+	i = 0;
+	while (i < heart->line_length * 64)
+	{
+		if (heart->addr[i] == 0)
+			heart->addr[i] = top_wall->addr[i];
+		i++;
+	}
+}
 
 static void	print_walls_corner(t_data *data, int y, int x)
 {
@@ -51,4 +65,11 @@ void	print_player(t_data *data, int key, int i, int j)
 		print_image(data, data->player->idle[EST][0]->img, i, j);
 	if (data->player->old_direction != data->player->direction)
 		data->frame_run = 0;
+}
+
+void	print_heart(t_data *data)
+{
+	set_image_heart(data->heart[0], data->wall[4]);
+	set_image_heart(data->heart[1], data->wall[4]);
+	print_image(data, data->heart[0]->img, 0, 0);
 }

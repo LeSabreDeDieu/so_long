@@ -6,7 +6,7 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 08:50:13 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/05/10 11:28:56 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/05/13 13:36:05 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,14 @@
 
 static int	verif_collision(t_data *data, int i, int j)
 {
+	int	k;
+
+	k = 0;
 	if (data->player->pos->x == (unsigned int)j
 		&& data->player->pos->y == (unsigned int)i)
 	{
-		ft_printf("%s\n", YOU_LOOSE);
-		on_destroy(data);
+		print_image(data, data->heart[1]->img, 0, 0);
+		data->dead = 1;
 	}
 	if (data->map[i][j] == '1' || data->map[i][j] == 'C'
 		|| data->map[i][j] == 'M')

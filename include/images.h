@@ -6,7 +6,7 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 08:19:09 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/05/07 13:34:43 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/05/13 12:01:44 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,5 +145,8 @@
 # define COIN1 "./ressources/coin/coin-1.xpm"
 # define COIN2 "./ressources/coin/coin-2.xpm"
 # define COIN3 "./ressources/coin/coin-3.xpm"
+
+# define HALF_HEART "./ressources/half_heart.xpm"
+# define EMPTY_HEART "./ressources/empty_heart.xpm"
 
 #endif
