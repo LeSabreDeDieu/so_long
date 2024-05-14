@@ -6,7 +6,7 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 10:34:15 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/05/13 13:51:48 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/05/14 09:24:55 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ static void	finish(t_data *data)
 	else
 	{
 		if (data->dead == 1)
-			ft_printf("%s\n", YOU_LOOSE);
+			ft_printf("%s\n", YOU_LOSE);
 		if (data->dead <= 2)
 			data->dead++;
 	}

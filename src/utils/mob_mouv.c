@@ -6,7 +6,7 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 08:50:13 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/05/13 13:36:05 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/05/14 09:06:50 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 
 static int	verif_collision(t_data *data, int i, int j)
 {
-	int	k;
-
-	k = 0;
 	if (data->player->pos->x == (unsigned int)j
 		&& data->player->pos->y == (unsigned int)i)
 	{

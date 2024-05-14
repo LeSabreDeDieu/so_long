@@ -6,7 +6,7 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 10:52:17 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/05/13 13:53:11 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/05/14 09:07:25 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 
 static void	map_key_down(t_data *data, t_pos pos)
 {
-	int	i;
-
-	i = 0;
 	if (data->map[pos.y + 1][pos.x] == 'M')
 	{
 		print_image(data, data->heart[1]->img, 0, 0);
@@ -39,9 +36,6 @@ static void	map_key_down(t_data *data, t_pos pos)
 
 static void	map_key_left(t_data *data, t_pos pos)
 {
-	int	i;
-
-	i = 0;
 	if (data->map[pos.y][pos.x - 1] == 'M')
 	{
 		print_image(data, data->heart[1]->img, 0, 0);
@@ -64,9 +58,6 @@ static void	map_key_left(t_data *data, t_pos pos)
 
 static void	map_key_up(t_data *data, t_pos pos)
 {
-	int	i;
-
-	i = 0;
 	if (data->map[pos.y - 1][pos.x] == 'M')
 	{
 		print_image(data, data->heart[1]->img, 0, 0);
@@ -89,9 +80,6 @@ static void	map_key_up(t_data *data, t_pos pos)
 
 static void	map_key_right(t_data *data, t_pos pos)
 {
-	int	i;
-
-	i = 0;
 	if (data->map[pos.y][pos.x + 1] == 'M')
 	{
 		print_image(data, data->heart[1]->img, 0, 0);
