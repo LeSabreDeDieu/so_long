@@ -6,7 +6,7 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 10:44:44 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/05/13 13:00:08 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/05/15 10:36:19 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,27 @@ static void	load_wall(t_data *data)
 	data->wall[7] = set_image(data, MIDWALLCOL);
 }
 
-static void	load_coin(t_data *data)
+static void	load_numbers_and_coin(t_data *data)
 {
+	int	i;
+
+	i = 0;
 	data->collect[0] = set_image(data, COIN);
 	data->collect[1] = set_image(data, COIN1);
 	data->collect[2] = set_image(data, COIN2);
 	data->collect[3] = set_image(data, COIN3);
+	data->numbers[0] = set_image(data, ZERO);
+	data->numbers[1] = set_image(data, ONE);
+	data->numbers[2] = set_image(data, TWO);
+	data->numbers[3] = set_image(data, THREE);
+	data->numbers[4] = set_image(data, FOUR);
+	data->numbers[5] = set_image(data, FIVE);
+	data->numbers[6] = set_image(data, SIX);
+	data->numbers[7] = set_image(data, SEVEN);
+	data->numbers[8] = set_image(data, EIGTH);
+	data->numbers[9] = set_image(data, NINE);
+	while (i < 10)
+		set_image_numbers(data->numbers[i++], data->wall[2]);
 }
 
 static void	load_player(t_data *data)
@@ -64,8 +79,8 @@ void	load_image(t_data *data)
 	data->exit->imgs[1] = set_image(data, EXITLADDER);
 	data->heart[0] = set_image(data, HALF_HEART);
 	data->heart[1] = set_image(data, EMPTY_HEART);
-	load_coin(data);
 	load_wall(data);
 	load_player(data);
 	load_enemy(data);
+	load_numbers_and_coin(data);
 }

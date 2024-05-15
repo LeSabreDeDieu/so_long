@@ -6,7 +6,7 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 10:34:15 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/05/14 09:24:55 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/05/15 17:06:02 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,12 @@ int	on_destroy(t_data *data)
 	destroy_free_player(data);
 	destroy_free_enemy(data);
 	destroy_free_collect(data);
+	destroy_free_numbers(data);
 	if (data->floor->img)
 		mlx_destroy_image(data->mlx_ptr, data->floor->img);
 	free(data->floor);
 	free(data->mob_direction);
-	mlx_destroy_window(data->mlx_ptr, data->win_ptr);
+	mlx_destroy_window(data->mlx_ptr, data->win_ptr[0]);
 	mlx_destroy_display(data->mlx_ptr);
 	free_tab_str(data->map);
 	free(data->mlx_ptr);

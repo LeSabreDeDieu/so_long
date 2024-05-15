@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   win_lose.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/29 13:52:36 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/05/14 13:15:16 by sgabsi           ###   ########.fr       */
+/*   Created: 2024/05/15 16:33:37 by sgabsi            #+#    #+#             */
+/*   Updated: 2024/05/15 17:05:12 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <so_long.h>
 
-char	*ft_strjoin_gnl(char *s1, char const *s2)
+int	init_win_lose_win(t_data *data)
 {
-	char	*str;
+	char	*win_str;
 
-	if (!s1)
-		s1 = ft_strdup("");
-	if (!s1 || !s2)
-		return (NULL);
-	str = ft_strjoin(s1, s2);
-	free(s1);
-	return (str);
+	win_str = "You Win !";
+	if (data->dead == 1)
+		win_str = "You lose !";
+	data->win_ptr[1] = mlx_new_window(data->mlx_ptr, 800, 800, win_str);
+	if (!data->win_ptr[1])
+		return (0);
+	mlx_loop(data->mlx_ptr);
+	return (1);
 }

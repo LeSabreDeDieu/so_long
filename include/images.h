@@ -6,7 +6,7 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 08:19:09 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/05/13 12:01:44 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/05/15 10:12:35 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,5 +148,16 @@
 
 # define HALF_HEART "./ressources/half_heart.xpm"
 # define EMPTY_HEART "./ressources/empty_heart.xpm"
+
+# define ZERO "./ressources/numbers/0.xpm"
+# define ONE "./ressources/numbers/1.xpm"
+# define TWO "./ressources/numbers/2.xpm"
+# define THREE "./ressources/numbers/3.xpm"
+# define FOUR "./ressources/numbers/4.xpm"
+# define FIVE "./ressources/numbers/5.xpm"
+# define SIX "./ressources/numbers/6.xpm"
+# define SEVEN "./ressources/numbers/7.xpm"
+# define EIGTH "./ressources/numbers/8.xpm"
+# define NINE "./ressources/numbers/9.xpm"
 
 #endif

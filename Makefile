@@ -6,7 +6,7 @@
 #    By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/21 16:28:59 by sgabsi            #+#    #+#              #
-#    Updated: 2024/05/13 09:29:29 by sgabsi           ###   ########.fr        #
+#    Updated: 2024/05/15 16:53:55 by sgabsi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,11 +54,14 @@ SRC_UTILS_LIST		=	animation.c			\
 						math.c				\
 						mob_mouv.c			\
 						on_settings_utils.c	\
+						on_settings_utils2.c	\
 						on_settings.c		\
 						parsing_utils.c		\
 						parsing.c			\
+						print_step.c		\
 						refresh_map.c		\
-						utils.c
+						utils.c				\
+						win_lose.c
 SRC_UTILS			=	$(addprefix $(SRC_UTILS_DIR)/, $(SRC_UTILS_LIST))
 
 SRC_LIST			=	$(SRC_IMAGES)		\
@@ -82,7 +85,7 @@ NAME		=	so_long
 
 # Compiler
 CC			=	cc
-CFLAGS		=	-Wall -Werror -Wextra -g3
+CFLAGS		=	-Wall -Werror -Wextra -MMD -g3
 OPTIONS		=	-I $(INCDIR) -I $(LIBFT_DIR)/includes -I $(MLX_DIR)
 LFLAGS		=	-L $(LIBFT_DIR) -L $(MLX_DIR) -lft -lmlx -lX11 -lXext -lm
 
@@ -106,7 +109,7 @@ all: check
 compile: pre_comp $(LIBFT) $(MLX) $(NAME)
 
 check:
-	@if [ -f "$(NAME)" ] && [ -z "$(shell find $(SRCDIR) -type f -name "*.c" -newer $(NAME) 2>/dev/null)" ]; then \
+	@if [ -f "$(NAME)" ] && [ -z "$(shell find $(SRCDIR) -type f -name "*.c" -newer $(NAME) 2>/dev/null)" ] && [ -z "$(shell find $(SRCDIR) -type f -name "*.h" -newer $(NAME) 2>/dev/null)" ]; then \
 		echo "$(YELLOW)********* Rien à faire - Tout est à jour *********$(NC)"; \
 	else \
 		make -s compile; \

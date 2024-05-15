@@ -6,7 +6,7 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 13:59:02 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/05/13 09:43:40 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/05/14 12:31:36 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	animate_mob(t_data *data)
 			if (data->map[i][j] == 'M')
 			{
 				print_image(data,
-					data->enemy[data->mob_direction[k]][(data->frame_collec
+					data->mob[data->mob_direction[k]][(data->frame_collec
 						% 4)]->img, i, j);
 				k++;
 			}

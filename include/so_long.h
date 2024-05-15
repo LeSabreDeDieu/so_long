@@ -6,7 +6,7 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 14:01:37 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/05/14 09:34:49 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/05/15 16:52:39 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,8 @@ YYY:::::Y   Y:::::YYYO::::::O   O::::::O U:::::U     U:::::U       W:::::W      
        Y:::::Y       O:::::::OOO:::::::O U:::::::UUU:::::::U               W:::::::W       W:::::::W         II::::::IIN::::::N      N::::::::N           \n\
     YYYY:::::YYYY     OO:::::::::::::OO   UU:::::::::::::UU                 W:::::W         W:::::W          I::::::::IN::::::N       N:::::::N      !!!  \n\
     Y:::::::::::Y       OO:::::::::OO       UU:::::::::UU                    W:::W           W:::W           I::::::::IN::::::N        N::::::N     !!:!! \n\
-    YYYYYYYYYYYYY         OOOOOOOOO           UUUUUUUUU                       WWW             WWW            IIIIIIIIIINNNNNNNN         NNNNNNN      !!!  \n"
+    YYYYYYYYYYYYY         OOOOOOOOO           UUUUUUUUU                       WWW             WWW            IIIIIIIIIINNNNNNNN         NNNNNNN      !!!  \n\
+"
 
 # define YOU_LOSE "\n\
 YYYYYYY       YYYYYYY     OOOOOOOOO     UUUUUUUU     UUUUUUUU     LLLLLLLLLLL                  OOOOOOOOO        SSSSSSSSSSSSSSS EEEEEEEEEEEEEEEEEEEEEE      !!!  \n\
@@ -65,7 +66,8 @@ YYY:::::Y   Y:::::YYYO::::::O   O::::::O U:::::U     U:::::U        L:::::L     
        Y:::::Y       O:::::::OOO:::::::O U:::::::UUU:::::::U      LL:::::::LLLLLLLLL:::::LO:::::::OOO:::::::OSSSSSSS     S:::::SEE::::::EEEEEEEE:::::E           \n\
     YYYY:::::YYYY     OO:::::::::::::OO   UU:::::::::::::UU       L::::::::::::::::::::::L OO:::::::::::::OO S::::::SSSSSS:::::SE::::::::::::::::::::E      !!!  \n\
     Y:::::::::::Y       OO:::::::::OO       UU:::::::::UU         L::::::::::::::::::::::L   OO:::::::::OO   S:::::::::::::::SS E::::::::::::::::::::E     !!:!! \n\
-    YYYYYYYYYYYYY         OOOOOOOOO           UUUUUUUUU           LLLLLLLLLLLLLLLLLLLLLLLL     OOOOOOOOO      SSSSSSSSSSSSSSS   EEEEEEEEEEEEEEEEEEEEEE      !!!  \n"
+    YYYYYYYYYYYYY         OOOOOOOOO           UUUUUUUUU           LLLLLLLLLLLLLLLLLLLLLLLL     OOOOOOOOO      SSSSSSSSSSSSSSS   EEEEEEEEEEEEEEEEEEEEEE      !!!  \n\
+"
 
 enum				e_errors
 {
@@ -128,15 +130,16 @@ typedef struct s_data
 {
 	t_player		*player;
 	t_exit			*exit;
-	t_img			*enemy[4][4];
+	t_img			*mob[4][4];
 	t_img			*wall[8];
 	t_img			*collect[4];
 	t_img			*floor;
 	t_img			*heart[2];
+	t_img			*numbers[10];
 	char			**map;
 	int				*mob_direction;
 	void			*mlx_ptr;
-	void			*win_ptr;
+	void			*win_ptr[2];
 	unsigned int	nb_mobs;
 	unsigned int	nb_collectable;
 	unsigned int	nb_pas;
@@ -162,6 +165,7 @@ char				**init_visited_map(t_data *data);
 void				get_player_pos(t_data *data, int pos[2]);
 void				char_counter(t_data *data, int counter[4], int i, int j);
 void				mob_mouv(t_data *data);
+void				set_image_numbers(t_img *numbers, t_img *bot_wall);
 
 /*DESTROY IMAGES*/
 
@@ -170,6 +174,7 @@ void				destroy_free_exit(t_data *data);
 void				destroy_free_player(t_data *data);
 void				destroy_free_enemy(t_data *data);
 void				destroy_free_collect(t_data *data);
+void				destroy_free_numbers(t_data *data);
 
 /*ERROR GESTION*/
 void				exit_error(int error);
@@ -183,6 +188,7 @@ void				check_valid_map(t_data *data, char *path);
 
 /*INIT THE MINILIB*/
 int					init_minilib(t_data *data);
+int					init_win_lose_win(t_data *data);
 
 /*SET & LOAD IMAGES*/
 void				load_image(t_data *data);
@@ -197,6 +203,7 @@ void				load_enemy(t_data *data);
 
 /*PRINT IMAGES*/
 void				print_heart(t_data *data);
+void				print_step(t_data *data, int nb_step);
 void				print_walls(t_data *data, int y, int x);
 void				print_player(t_data *data, int key, int i, int j);
 void				print_image(t_data *data, void *img, int i, int j);
@@ -204,7 +211,6 @@ void				print_image(t_data *data, void *img, int i, int j);
 /*FILL IMAGE*/
 void				init_screen(t_data *data);
 void				init_images(t_data *data);
-void				init_enemy(t_data *data);
 void				re_print_image(t_data *data, int key, int i, int j);
 
 /*ANIMATIONS*/
