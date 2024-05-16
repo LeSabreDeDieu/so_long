@@ -6,7 +6,7 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 08:19:09 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/05/15 10:12:35 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/05/16 14:51:53 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -159,5 +159,8 @@
 # define SEVEN "./ressources/numbers/7.xpm"
 # define EIGTH "./ressources/numbers/8.xpm"
 # define NINE "./ressources/numbers/9.xpm"
+
+# define WIN "./ressources/win.xpm"
+# define LOSE "./ressources/lose.xpm"
 
 #endif

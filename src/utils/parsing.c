@@ -6,7 +6,7 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 16:09:37 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/05/10 10:13:53 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/05/16 15:18:18 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ static void	check_empty_line(char *map)
 {
 	int	i;
 
+	if (!map)
+		(free(map), exit_error(VOIDMAP));
 	i = 0;
 	while (map[i])
 	{

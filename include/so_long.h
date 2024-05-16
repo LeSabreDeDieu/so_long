@@ -6,7 +6,7 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 14:01:37 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/05/15 16:52:39 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/05/16 15:18:28 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,8 @@ enum				e_errors
 	TOOMANY,
 	NOTRECT,
 	NOTBORDERED,
-	NOVALIDPATH
+	NOVALIDPATH,
+	VOIDMAP
 };
 
 enum e_direction
@@ -136,6 +137,7 @@ typedef struct s_data
 	t_img			*floor;
 	t_img			*heart[2];
 	t_img			*numbers[10];
+	t_img			*win_lose;
 	char			**map;
 	int				*mob_direction;
 	void			*mlx_ptr;
@@ -155,6 +157,7 @@ typedef struct s_data
 /*UTILS*/
 int					on_destroy(t_data *data);
 int					on_keypress(int keysym, t_data *data);
+int					on_keypress_1(int keysym, t_data *data);
 int					on_keyrelease(int keysym, t_data *data);
 int					on_refresh(t_data *data);
 void				refresh_map_player(t_data *data, int key);

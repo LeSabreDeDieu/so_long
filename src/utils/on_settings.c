@@ -6,7 +6,7 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 10:34:15 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/05/15 17:06:02 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/05/16 15:13:19 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,24 @@ int	on_destroy(t_data *data)
 	free(data->floor);
 	free(data->mob_direction);
 	mlx_destroy_window(data->mlx_ptr, data->win_ptr[0]);
+	if (data->win_ptr[1])
+	{
+		if (data->win_lose->img)
+			mlx_destroy_image(data->mlx_ptr, data->win_lose->img);
+		free(data->win_lose);
+		mlx_destroy_window(data->mlx_ptr, data->win_ptr[1]);
+	}
 	mlx_destroy_display(data->mlx_ptr);
 	free_tab_str(data->map);
 	free(data->mlx_ptr);
 	exit(0);
+}
+
+int	on_keypress_1(int keysym, t_data *data)
+{
+	if (keysym == ESC)
+		on_destroy(data);
+	return (0);
 }
 
 int	on_keypress(int keysym, t_data *data)
@@ -62,7 +76,7 @@ int	on_keypress(int keysym, t_data *data)
 
 static void	finish(t_data *data)
 {
-	if (!data->dead)
+	if (data->dead == 0)
 	{
 		if (data->player->collected == data->nb_collectable)
 		{
@@ -70,14 +84,18 @@ static void	finish(t_data *data)
 				&& data->player->pos->y == data->exit->pos->y)
 			{
 				ft_printf("%s\n", YOU_WIN);
-				on_destroy(data);
+				init_win_lose_win(data);
+				data->dead+=2;
 			}
 		}
 	}
 	else
 	{
 		if (data->dead == 1)
+		{
 			ft_printf("%s\n", YOU_LOSE);
+			init_win_lose_win(data);
+		}
 		if (data->dead <= 2)
 			data->dead++;
 	}

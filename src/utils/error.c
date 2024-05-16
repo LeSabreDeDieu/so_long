@@ -6,7 +6,7 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 16:16:30 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/04/24 11:06:01 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/05/16 15:18:58 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ static void	exit_error2(int error)
 		ft_putendl_fd("La map n'a pas de bordure complete", 2);
 	if (error == NOVALIDPATH)
 		ft_putendl_fd("Il n'existe pas de chemin valide pour finir le jeu", 2);
+	if (error == VOIDMAP)
+		ft_putendl_fd("La map est vide", 2);
 }
 
 void	exit_error(int error)
