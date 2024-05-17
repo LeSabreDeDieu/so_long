@@ -6,7 +6,7 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 16:33:37 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/05/16 14:58:37 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/05/17 11:21:37 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ int	init_win_lose_win(t_data *data)
 	}
 	else
 		data->win_lose = set_image(data, WIN);
+	if (data->win_lose == NULL)
+		return (0);
 	data->win_ptr[1] = mlx_new_window(data->mlx_ptr, 1024, 1024, win_str);
 	if (!data->win_ptr[1])
 		return (0);

@@ -6,7 +6,7 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 09:40:36 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/05/10 10:13:53 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/05/17 09:45:12 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,30 +54,21 @@ void	get_player_pos(t_data *data, int pos[2])
 	}
 }
 
-int	is_valid_path(t_data *data, char **visited, int x, int y)
+void	get_nb_coin(t_data *data)
 {
-	if (x <= 0 || x >= data->height || y <= 0 || y >= data->width)
-		return (0);
-	if (data->map[x][y] == '1' || data->map[x][y] == 'M' || visited[x][y])
-		return (0);
-	if (data->map[x][y] == 'E')
-		return (1);
-	visited[x][y] = 1;
-	if (is_valid_path(data, visited, x + 1, y) || is_valid_path(data, visited, x
-			- 1, y) || is_valid_path(data, visited, x, y + 1)
-		|| is_valid_path(data, visited, x, y - 1))
-		return (1);
-	return (0);
-}
+	int	i;
+	int	j;
 
-char	**init_visited_map(t_data *data)
-{
-	int		i;
-	char	**tmp;
-
-	tmp = ft_calloc(data->height + 1, sizeof(char *));
 	i = 0;
-	while (i <= data->height)
-		tmp[i++] = ft_calloc(data->width + 1, sizeof(char));
-	return (tmp);
+	while (data->map[i])
+	{
+		j = 0;
+		while (data->map[i][j])
+		{
+			if (data->map[i][j] == 'C')
+				data->nb_collectable++;
+			j++;
+		}
+		i++;
+	}
 }

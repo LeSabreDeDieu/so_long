@@ -6,7 +6,7 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 16:16:30 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/05/16 15:18:58 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/05/17 13:07:14 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static void	exit_error2(int error)
 
 void	exit_error(int error)
 {
-	ft_putendl_fd("Error", 2);
+	ft_putendl_fd(ERROR, 2);
 	if (error == NOTBER)
 		ft_putendl_fd("La map n'est pas au format .ber !", 2);
 	if (error == SCREENTOOBIG)
@@ -43,7 +43,7 @@ void	exit_error(int error)
 	if (error == CHARERROR)
 	{
 		ft_putstr_fd("La map contient des caracteres differents de ", 2);
-		ft_putendl_fd("1, 0, C, P et E !", 2);
+		ft_putendl_fd("1, 0, C, P, E et M !", 2);
 	}
 	if (error == EMPTYLINE)
 		ft_putendl_fd("Il y a une ligne vide dans la map !", 2);

@@ -6,7 +6,7 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 16:09:37 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/05/16 15:18:18 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/05/17 09:45:48 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,6 @@ static void	check_bordered(t_data *data)
 void	check_valid_map(t_data *data, char *path)
 {
 	char	*map_tmp;
-	char	**visited_map;
 	int		player_pos[2];
 
 	map_tmp = get_map(path);
@@ -116,14 +115,12 @@ void	check_valid_map(t_data *data, char *path)
 	check_size_line(data->map);
 	get_height_width(data, data->map);
 	check_bordered(data);
-	visited_map = init_visited_map(data);
 	ft_bzero(player_pos, sizeof(int));
 	get_player_pos(data, player_pos);
-	if (!is_valid_path(data, visited_map, player_pos[1], player_pos[0]))
+	if (!is_valid_path(data, player_pos[1], player_pos[0]))
 	{
 		free_tab_str(data->map);
-		free_visited_map(visited_map, data->height + 1);
 		exit_error(NOVALIDPATH);
 	}
-	free_visited_map(visited_map, data->height + 1);
+	get_nb_coin(data);
 }

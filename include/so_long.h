@@ -6,7 +6,7 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 14:01:37 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/05/16 15:18:28 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/05/17 13:05:07 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,25 @@
 # define KEY_A 97
 
 /*SOME MESSAGES*/
+
+# define ERROR "\n\
+EEEEEEEEEEEEEEEEEEEEEERRRRRRRRRRRRRRRRR   RRRRRRRRRRRRRRRRR        OOOOOOOOO     RRRRRRRRRRRRRRRRR    \n\
+E::::::::::::::::::::ER::::::::::::::::R  R::::::::::::::::R     OO:::::::::OO   R::::::::::::::::R   \n\
+E::::::::::::::::::::ER::::::RRRRRR:::::R R::::::RRRRRR:::::R  OO:::::::::::::OO R::::::RRRRRR:::::R  \n\
+EE::::::EEEEEEEEE::::ERR:::::R     R:::::RRR:::::R     R:::::RO:::::::OOO:::::::ORR:::::R     R:::::R \n\
+  E:::::E       EEEEEE  R::::R     R:::::R  R::::R     R:::::RO::::::O   O::::::O  R::::R     R:::::R \n\
+  E:::::E               R::::R     R:::::R  R::::R     R:::::RO:::::O     O:::::O  R::::R     R:::::R \n\
+  E::::::EEEEEEEEEE     R::::RRRRRR:::::R   R::::RRRRRR:::::R O:::::O     O:::::O  R::::RRRRRR:::::R  \n\
+  E:::::::::::::::E     R:::::::::::::RR    R:::::::::::::RR  O:::::O     O:::::O  R:::::::::::::RR   \n\
+  E:::::::::::::::E     R::::RRRRRR:::::R   R::::RRRRRR:::::R O:::::O     O:::::O  R::::RRRRRR:::::R  \n\
+  E::::::EEEEEEEEEE     R::::R     R:::::R  R::::R     R:::::RO:::::O     O:::::O  R::::R     R:::::R \n\
+  E:::::E               R::::R     R:::::R  R::::R     R:::::RO:::::O     O:::::O  R::::R     R:::::R \n\
+  E:::::E       EEEEEE  R::::R     R:::::R  R::::R     R:::::RO::::::O   O::::::O  R::::R     R:::::R \n\
+EE::::::EEEEEEEE:::::ERR:::::R     R:::::RRR:::::R     R:::::RO:::::::OOO:::::::ORR:::::R     R:::::R \n\
+E::::::::::::::::::::ER::::::R     R:::::RR::::::R     R:::::R OO:::::::::::::OO R::::::R     R:::::R \n\
+E::::::::::::::::::::ER::::::R     R:::::RR::::::R     R:::::R   OO:::::::::OO   R::::::R     R:::::R \n\
+EEEEEEEEEEEEEEEEEEEEEERRRRRRRR     RRRRRRRRRRRRRRR     RRRRRRR     OOOOOOOOO     RRRRRRRR     RRRRRRR \n\
+"
 
 # define YOU_WIN "\n\
 YYYYYYY       YYYYYYY     OOOOOOOOO     UUUUUUUU     UUUUUUUU     WWWWWWWW                           WWWWWWWWIIIIIIIIIINNNNNNNN        NNNNNNNN      !!!  \n\
@@ -163,9 +182,10 @@ int					on_refresh(t_data *data);
 void				refresh_map_player(t_data *data, int key);
 void				free_tab_str(char **str);
 void				free_visited_map(char **map, int height);
-int					is_valid_path(t_data *data, char **visited, int x, int y);
+int					is_valid_path(t_data *data, int start_x, int start_y);
 char				**init_visited_map(t_data *data);
 void				get_player_pos(t_data *data, int pos[2]);
+void				get_nb_coin(t_data *data);
 void				char_counter(t_data *data, int counter[4], int i, int j);
 void				mob_mouv(t_data *data);
 void				set_image_numbers(t_img *numbers, t_img *bot_wall);
@@ -178,6 +198,8 @@ void				destroy_free_player(t_data *data);
 void				destroy_free_enemy(t_data *data);
 void				destroy_free_collect(t_data *data);
 void				destroy_free_numbers(t_data *data);
+void				destroy_free_leftover(t_data *data);
+void				destroy_window(t_data *data);
 
 /*ERROR GESTION*/
 void				exit_error(int error);

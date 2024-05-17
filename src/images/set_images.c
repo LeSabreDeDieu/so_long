@@ -6,7 +6,7 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 10:44:44 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/05/15 10:36:19 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/05/17 11:22:07 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,10 @@ t_img	*set_image(t_data *data, char *path)
 	img->img = mlx_xpm_file_to_image(data->mlx_ptr, path, &img->height,
 			&img->width);
 	if (!img->img)
+	{
+		free(img);
 		on_destroy(data);
+	}
 	img->addr = mlx_get_data_addr(img->img, &img->bpp, &img->line_length,
 			&img->endian);
 	return (img);

@@ -6,7 +6,7 @@
 #    By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/21 16:28:59 by sgabsi            #+#    #+#              #
-#    Updated: 2024/05/15 16:53:55 by sgabsi           ###   ########.fr        #
+#    Updated: 2024/05/17 13:10:33 by sgabsi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,6 +60,7 @@ SRC_UTILS_LIST		=	animation.c			\
 						parsing.c			\
 						print_step.c		\
 						refresh_map.c		\
+						utils_2.c			\
 						utils.c				\
 						win_lose.c
 SRC_UTILS			=	$(addprefix $(SRC_UTILS_DIR)/, $(SRC_UTILS_LIST))
@@ -85,7 +86,7 @@ NAME		=	so_long
 
 # Compiler
 CC			=	cc
-CFLAGS		=	-Wall -Werror -Wextra -MMD -g3
+CFLAGS		=	-Wall -Werror -Wextra -MMD
 OPTIONS		=	-I $(INCDIR) -I $(LIBFT_DIR)/includes -I $(MLX_DIR)
 LFLAGS		=	-L $(LIBFT_DIR) -L $(MLX_DIR) -lft -lmlx -lX11 -lXext -lm
 
@@ -155,6 +156,6 @@ re: fclean compile
 
 norminette:
 	@echo "$(YELLOW)********* Exécution de norminette *********$(NC)"
-	@norminette | grep -B 1 -e "Error" || echo "Tous les fichiers ont passé le check norminette !"
+	@norminette src/ include/ lib/libft | grep -B 1 -e "Error" || echo "Tous les fichiers ont passé le check norminette !"
 
 .PHONY: check compile all clean fclean re norminette

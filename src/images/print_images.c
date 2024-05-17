@@ -6,7 +6,7 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 13:27:54 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/05/15 16:32:39 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/05/17 13:09:55 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 
 void	print_image(t_data *data, void *img, int y, int x)
 {
-	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr[0], img, x * 64, y * 64);
+	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr[0], img, x * 64, y
+		* 64);
 }
 
 static void	print_mob(t_data *data, int x, int y)
