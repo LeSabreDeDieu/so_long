@@ -6,7 +6,7 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 10:17:18 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/05/15 11:55:00 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/05/17 18:47:12 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	set_image_numbers(t_img *numbers, t_img *bot_wall)
 	}
 }
 
-void	print_step(t_data *data, int nb_step)
+void	print_numbers(t_data *data, int nb_step, int x, int y)
 {
 	char	*nb_step_str;
 	char	tmp[2];
@@ -56,8 +56,8 @@ void	print_step(t_data *data, int nb_step)
 	{
 		tmp[0] = nb_step_str[i];
 		actual_number = ft_atoi(tmp);
-		print_image(data, data->numbers[actual_number]->img, data->height,
-			i + 1);
+		print_image(data, data->numbers[actual_number]->img, y,
+			x + i + 1);
 		i++;
 	}
 	free(nb_step_str);

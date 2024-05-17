@@ -6,7 +6,7 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 10:33:12 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/05/17 14:42:19 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/05/17 18:34:02 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	destroy_free_collect(t_data *data)
 	int	i;
 
 	i = 0;
-	while (i < 4)
+	while (i < 5)
 	{
 		if (data->collect[i])
 		{

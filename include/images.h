@@ -6,7 +6,7 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 08:19:09 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/05/16 14:51:53 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/05/17 18:32:35 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,6 +141,7 @@
 
 # define FLOOR "./ressources/floor.xpm"
 
+# define COIN_NO_BG "./ressources/coin/coin_no_bg.xpm"
 # define COIN "./ressources/coin/coin.xpm"
 # define COIN1 "./ressources/coin/coin-1.xpm"
 # define COIN2 "./ressources/coin/coin-2.xpm"

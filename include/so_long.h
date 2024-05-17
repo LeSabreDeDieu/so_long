@@ -6,7 +6,7 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 14:01:37 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/05/17 13:05:07 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/05/17 18:55:47 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,12 +56,12 @@ Y:::::Y       Y:::::Y   OO:::::::::OO   U::::::U     U::::::U     W::::::W      
 Y:::::Y       Y:::::Y OO:::::::::::::OO U::::::U     U::::::U     W::::::W                           W::::::WI::::::::IN::::::::N      N::::::N     !:::! \n\
 Y::::::Y     Y::::::YO:::::::OOO:::::::OUU:::::U     U:::::UU     W::::::W                           W::::::WII::::::IIN:::::::::N     N::::::N     !:::! \n\
 YYY:::::Y   Y:::::YYYO::::::O   O::::::O U:::::U     U:::::U       W:::::W           WWWWW           W:::::W   I::::I  N::::::::::N    N::::::N     !:::! \n\
-   Y:::::Y Y:::::Y   O:::::O     O:::::O U:::::D     D:::::U        W:::::W         W:::::W         W:::::W    I::::I  N:::::::::::N   N::::::N     !:::! \n\
-    Y:::::Y:::::Y    O:::::O     O:::::O U:::::D     D:::::U         W:::::W       W:::::::W       W:::::W     I::::I  N:::::::N::::N  N::::::N     !:::! \n\
-     Y:::::::::Y     O:::::O     O:::::O U:::::D     D:::::U          W:::::W     W:::::::::W     W:::::W      I::::I  N::::::N N::::N N::::::N     !:::! \n\
-      Y:::::::Y      O:::::O     O:::::O U:::::D     D:::::U           W:::::W   W:::::W:::::W   W:::::W       I::::I  N::::::N  N::::N:::::::N     !:::! \n\
-       Y:::::Y       O:::::O     O:::::O U:::::D     D:::::U            W:::::W W:::::W W:::::W W:::::W        I::::I  N::::::N   N:::::::::::N     !:::! \n\
-       Y:::::Y       O:::::O     O:::::O U:::::D     D:::::U             W:::::W:::::W   W:::::W:::::W         I::::I  N::::::N    N::::::::::N     !!:!! \n\
+   Y:::::Y Y:::::Y   O:::::O     O:::::O U:::::U     U:::::U        W:::::W         W:::::W         W:::::W    I::::I  N:::::::::::N   N::::::N     !:::! \n\
+    Y:::::Y:::::Y    O:::::O     O:::::O U:::::U     U:::::U         W:::::W       W:::::::W       W:::::W     I::::I  N:::::::N::::N  N::::::N     !:::! \n\
+     Y:::::::::Y     O:::::O     O:::::O U:::::U     U:::::U          W:::::W     W:::::::::W     W:::::W      I::::I  N::::::N N::::N N::::::N     !:::! \n\
+      Y:::::::Y      O:::::O     O:::::O U:::::U     U:::::U           W:::::W   W:::::W:::::W   W:::::W       I::::I  N::::::N  N::::N:::::::N     !:::! \n\
+       Y:::::Y       O:::::O     O:::::O U:::::U     U:::::U            W:::::W W:::::W W:::::W W:::::W        I::::I  N::::::N   N:::::::::::N     !:::! \n\
+       Y:::::Y       O:::::O     O:::::O U:::::U     U:::::U             W:::::W:::::W   W:::::W:::::W         I::::I  N::::::N    N::::::::::N     !!:!! \n\
        Y:::::Y       O::::::O   O::::::O U::::::U   U::::::U              W:::::::::W     W:::::::::W          I::::I  N::::::N     N:::::::::N      !!!  \n\
        Y:::::Y       O:::::::OOO:::::::O U:::::::UUU:::::::U               W:::::::W       W:::::::W         II::::::IIN::::::N      N::::::::N           \n\
     YYYY:::::YYYY     OO:::::::::::::OO   UU:::::::::::::UU                 W:::::W         W:::::W          I::::::::IN::::::N       N:::::::N      !!!  \n\
@@ -75,12 +75,12 @@ Y:::::Y       Y:::::Y   OO:::::::::OO   U::::::U     U::::::U     L:::::::::L   
 Y:::::Y       Y:::::Y OO:::::::::::::OO U::::::U     U::::::U     L:::::::::L              OO:::::::::::::OO S:::::SSSSSS::::::SE::::::::::::::::::::E     !:::! \n\
 Y::::::Y     Y::::::YO:::::::OOO:::::::OUU:::::U     U:::::UU     LL:::::::LL             O:::::::OOO:::::::OS:::::S     SSSSSSSEE::::::EEEEEEEEE::::E     !:::! \n\
 YYY:::::Y   Y:::::YYYO::::::O   O::::::O U:::::U     U:::::U        L:::::L               O::::::O   O::::::OS:::::S              E:::::E       EEEEEE     !:::! \n\
-   Y:::::Y Y:::::Y   O:::::O     O:::::O U:::::D     D:::::U        L:::::L               O:::::O     O:::::OS:::::S              E:::::E                  !:::! \n\
-    Y:::::Y:::::Y    O:::::O     O:::::O U:::::D     D:::::U        L:::::L               O:::::O     O:::::O S::::SSSS           E::::::EEEEEEEEEE        !:::! \n\
-     Y:::::::::Y     O:::::O     O:::::O U:::::D     D:::::U        L:::::L               O:::::O     O:::::O  SS::::::SSSSS      E:::::::::::::::E        !:::! \n\
-      Y:::::::Y      O:::::O     O:::::O U:::::D     D:::::U        L:::::L               O:::::O     O:::::O    SSS::::::::SS    E:::::::::::::::E        !:::! \n\
-       Y:::::Y       O:::::O     O:::::O U:::::D     D:::::U        L:::::L               O:::::O     O:::::O       SSSSSS::::S   E::::::EEEEEEEEEE        !:::! \n\
-       Y:::::Y       O:::::O     O:::::O U:::::D     D:::::U        L:::::L               O:::::O     O:::::O            S:::::S  E:::::E                  !!:!! \n\
+   Y:::::Y Y:::::Y   O:::::O     O:::::O U:::::U     U:::::U        L:::::L               O:::::O     O:::::OS:::::S              E:::::E                  !:::! \n\
+    Y:::::Y:::::Y    O:::::O     O:::::O U:::::U     U:::::U        L:::::L               O:::::O     O:::::O S::::SSSS           E::::::EEEEEEEEEE        !:::! \n\
+     Y:::::::::Y     O:::::O     O:::::O U:::::U     U:::::U        L:::::L               O:::::O     O:::::O  SS::::::SSSSS      E:::::::::::::::E        !:::! \n\
+      Y:::::::Y      O:::::O     O:::::O U:::::U     U:::::U        L:::::L               O:::::O     O:::::O    SSS::::::::SS    E:::::::::::::::E        !:::! \n\
+       Y:::::Y       O:::::O     O:::::O U:::::U     U:::::U        L:::::L               O:::::O     O:::::O       SSSSSS::::S   E::::::EEEEEEEEEE        !:::! \n\
+       Y:::::Y       O:::::O     O:::::O U:::::U     U:::::U        L:::::L               O:::::O     O:::::O            S:::::S  E:::::E                  !!:!! \n\
        Y:::::Y       O::::::O   O::::::O U::::::U   U::::::U        L:::::L         LLLLLLO::::::O   O::::::O            S:::::S  E:::::E       EEEEEE      !!!  \n\
        Y:::::Y       O:::::::OOO:::::::O U:::::::UUU:::::::U      LL:::::::LLLLLLLLL:::::LO:::::::OOO:::::::OSSSSSSS     S:::::SEE::::::EEEEEEEE:::::E           \n\
     YYYY:::::YYYY     OO:::::::::::::OO   UU:::::::::::::UU       L::::::::::::::::::::::L OO:::::::::::::OO S::::::SSSSSS:::::SE::::::::::::::::::::E      !!!  \n\
@@ -152,7 +152,7 @@ typedef struct s_data
 	t_exit			*exit;
 	t_img			*mob[4][4];
 	t_img			*wall[8];
-	t_img			*collect[4];
+	t_img			*collect[5];
 	t_img			*floor;
 	t_img			*heart[2];
 	t_img			*numbers[10];
@@ -227,8 +227,8 @@ void				load_player_up(t_data *data);
 void				load_enemy(t_data *data);
 
 /*PRINT IMAGES*/
-void				print_heart(t_data *data);
-void				print_step(t_data *data, int nb_step);
+void				print_UI(t_data *data);
+void				print_numbers(t_data *data, int nb_step, int x, int y);
 void				print_walls(t_data *data, int y, int x);
 void				print_player(t_data *data, int key, int i, int j);
 void				print_image(t_data *data, void *img, int i, int j);

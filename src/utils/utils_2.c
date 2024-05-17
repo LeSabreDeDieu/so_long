@@ -6,7 +6,7 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 09:28:44 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/05/17 10:31:01 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/05/17 18:26:40 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	check_collectables(t_data *data, char **visited, int x, int y)
 {
 	if (x < 0 || x >= data->height || y < 0 || y >= data->width)
 		return (0);
-	if (data->map[x][y] == '1' || visited[x][y])
+	if (data->map[x][y] == '1' || data->map[x][y] == 'M' || visited[x][y])
 		return (0);
 	if (data->map[x][y] == 'C')
 	{
@@ -34,7 +34,7 @@ int	find_exit(t_data *data, char **visited, int x, int y)
 {
 	if (x < 0 || x >= data->height || y < 0 || y >= data->width)
 		return (0);
-	if (data->map[x][y] == '1' || visited[x][y])
+	if (data->map[x][y] == '1' || data->map[x][y] == 'M' || visited[x][y])
 		return (0);
 	if (data->map[x][y] == 'E')
 		return (1);

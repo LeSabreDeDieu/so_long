@@ -6,7 +6,7 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 10:52:17 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/05/15 16:22:20 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/05/17 18:53:20 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,10 @@ static void	map_key_down(t_data *data, t_pos pos, int key)
 	if (data->map[pos.y + 1][pos.x] != '1')
 	{
 		if (data->map[pos.y + 1][pos.x] == 'C')
+		{
 			data->player->collected++;
+			print_numbers(data, data->player->collected, 4, 0);
+		}
 		data->player->pos->y++;
 		if (pos.y == data->exit->pos->y && pos.x == data->exit->pos->x)
 			data->map[data->exit->pos->y][data->exit->pos->x] = 'E';
@@ -33,7 +36,7 @@ static void	map_key_down(t_data *data, t_pos pos, int key)
 		data->nb_pas++;
 		ft_printf("Nombre de pas : %d\n", data->nb_pas);
 		print_player(data, key, data->player->pos->y, data->player->pos->x);
-		print_step(data, data->nb_pas);
+		print_numbers(data, data->nb_pas, 0, data->height);
 	}
 }
 
@@ -47,9 +50,12 @@ static void	map_key_left(t_data *data, t_pos pos, int key)
 	}
 	if (data->map[pos.y][pos.x - 1] != '1')
 	{
-		--data->player->pos->x;
-		if (data->map[data->player->pos->y][data->player->pos->x] == 'C')
+		if (data->map[pos.y][pos.x - 1] == 'C')
+		{
 			data->player->collected++;
+			print_numbers(data, data->player->collected, 4, 0);
+		}
+		data->player->pos->x--;
 		if (pos.y == data->exit->pos->y && pos.x == data->exit->pos->x)
 			data->map[data->exit->pos->y][data->exit->pos->x] = 'E';
 		else
@@ -58,7 +64,7 @@ static void	map_key_left(t_data *data, t_pos pos, int key)
 		data->nb_pas++;
 		ft_printf("Nombre de pas : %d\n", data->nb_pas);
 		print_player(data, key, data->player->pos->y, data->player->pos->x);
-		print_step(data, data->nb_pas);
+		print_numbers(data, data->nb_pas, 0, data->height);
 	}
 }
 
@@ -73,7 +79,10 @@ static void	map_key_up(t_data *data, t_pos pos, int key)
 	if (data->map[pos.y - 1][pos.x] != '1')
 	{
 		if (data->map[pos.y - 1][pos.x] == 'C')
+		{
 			data->player->collected++;
+			print_numbers(data, data->player->collected, 4, 0);
+		}
 		data->player->pos->y--;
 		if (pos.y == data->exit->pos->y && pos.x == data->exit->pos->x)
 			data->map[data->exit->pos->y][data->exit->pos->x] = 'E';
@@ -83,7 +92,7 @@ static void	map_key_up(t_data *data, t_pos pos, int key)
 		data->nb_pas++;
 		ft_printf("Nombre de pas : %u\n", data->nb_pas);
 		print_player(data, key, data->player->pos->y, data->player->pos->x);
-		print_step(data, data->nb_pas);
+		print_numbers(data, data->nb_pas, 0, data->height);
 	}
 }
 
@@ -98,7 +107,10 @@ static void	map_key_right(t_data *data, t_pos pos, int key)
 	if (data->map[pos.y][pos.x + 1] != '1')
 	{
 		if (data->map[pos.y][pos.x + 1] == 'C')
+		{
 			data->player->collected++;
+			print_numbers(data, data->player->collected, 4, 0);
+		}
 		data->player->pos->x++;
 		if (pos.y == data->exit->pos->y && pos.x == data->exit->pos->x)
 			data->map[data->exit->pos->y][data->exit->pos->x] = 'E';
@@ -108,7 +120,7 @@ static void	map_key_right(t_data *data, t_pos pos, int key)
 		data->nb_pas++;
 		ft_printf("Nombre de pas : %d\n", data->nb_pas);
 		print_player(data, key, data->player->pos->y, data->player->pos->x);
-		print_step(data, data->nb_pas);
+		print_numbers(data, data->nb_pas, 0, data->height);
 	}
 }
 
