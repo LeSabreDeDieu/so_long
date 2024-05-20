@@ -6,7 +6,7 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/10 08:50:13 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/05/14 12:31:36 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/05/20 11:22:26 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static int	verif_collision(t_data *data, int y, int x)
 		data->dead = 1;
 	}
 	if (data->map[y][x] == '1' || data->map[y][x] == 'C'
-		|| data->map[y][x] == 'M')
+		|| data->map[y][x] == 'M'|| data->map[y][x] == 'E')
 		return (0);
 	return (1);
 }

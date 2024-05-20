@@ -6,7 +6,7 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 16:09:37 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/05/17 09:45:48 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/05/20 11:27:00 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,6 +120,7 @@ void	check_valid_map(t_data *data, char *path)
 	if (!is_valid_path(data, player_pos[1], player_pos[0]))
 	{
 		free_tab_str(data->map);
+		free(data->mob_direction);
 		exit_error(NOVALIDPATH);
 	}
 	get_nb_coin(data);
