@@ -6,7 +6,7 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 13:27:54 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/05/17 18:35:44 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/05/22 14:37:15 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ static void	print_all_images_utils(t_data *data, int i, int j)
 	}
 	else
 		print_image(data, data->floor->img, i, j);
-	print_UI(data);
+	print_ui(data);
 }
 
 void	re_print_image(t_data *data, int key, int y, int x)

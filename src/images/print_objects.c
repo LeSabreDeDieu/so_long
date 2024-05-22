@@ -6,14 +6,14 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 11:00:27 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/05/17 18:52:57 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/05/22 14:37:16 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 #include <stdio.h>
 
-static void	set_image_UI(t_img *UI, t_img *top_wall)
+static void	set_image_ui(t_img *UI, t_img *top_wall)
 {
 	ssize_t	i;
 
@@ -67,11 +67,11 @@ void	print_player(t_data *data, int key, int y, int x)
 		data->frame_run = 0;
 }
 
-void	print_UI(t_data *data)
+void	print_ui(t_data *data)
 {
-	set_image_UI(data->heart[0], data->wall[4]);
-	set_image_UI(data->heart[1], data->wall[4]);
-	set_image_UI(data->collect[4], data->wall[3]);
+	set_image_ui(data->heart[0], data->wall[4]);
+	set_image_ui(data->heart[1], data->wall[4]);
+	set_image_ui(data->collect[4], data->wall[3]);
 	print_image(data, data->heart[0]->img, 0, 0);
 	print_image(data, data->collect[4]->img, 0, 3);
 	print_numbers(data, data->player->collected, 4, 0);

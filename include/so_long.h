@@ -6,7 +6,7 @@
 /*   By: sgabsi <sgabsi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 14:01:37 by sgabsi            #+#    #+#             */
-/*   Updated: 2024/05/17 18:55:47 by sgabsi           ###   ########.fr       */
+/*   Updated: 2024/05/22 14:37:15 by sgabsi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -227,7 +227,7 @@ void				load_player_up(t_data *data);
 void				load_enemy(t_data *data);
 
 /*PRINT IMAGES*/
-void				print_UI(t_data *data);
+void				print_ui(t_data *data);
 void				print_numbers(t_data *data, int nb_step, int x, int y);
 void				print_walls(t_data *data, int y, int x);
 void				print_player(t_data *data, int key, int i, int j);
