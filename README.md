@@ -7,7 +7,7 @@
 </p>
 
 <p align="center">
-	<img src="https://raw.githubusercontent.com/ayogun/42-project-badges/refs/heads/main/badges/solongm.png" alt="mimishell_logo" />
+	<img src="https://raw.githubusercontent.com/ayogun/42-project-badges/refs/heads/main/badges/so_longm.png" alt="so_long_logo" />
 </p>
 
 ---
