@@ -28,7 +28,7 @@ cd so_long
 make
 ```
 
-##Usage
+## Usage
 To play the game, run the following command :
 ```bash
 ./so_long <map_file>
@@ -37,5 +37,21 @@ Replace <map_file> with the path to a valid map file. Example :
 ```bash
 ./so_long maps/level1.ber
 ```
-##Map File
-The map file should be a ```.ber``` file containing the layout of the game. The map should be composed of the following characters:
+## Map File
+The map file should be a ```.ber``` file containing the layout of the game. The map should be composed of the following characters :
+- ```0``` : Empty Space
+- ```1``` : Wall
+- ```C``` : Collectible item
+- ```E``` : Exit
+- ```P``` : Player starting position
+- ```M``` : Enemy
+
+
+## Controls
+Use the following keys to control the player :
+- `W` : Move up
+- `A` : Move left
+- `S` : Move down
+- `D` : Move right
+- `ESC` : Exit the game
+
